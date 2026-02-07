@@ -183,7 +183,7 @@ function startConfetti(ms=2500){
 const totalPhotos = 8; // ajusta según tus fotos
 for (let i = 1; i <= totalPhotos; i++) {
   const img = document.createElement("img");
-  img.src = `assets/photos/${i}.jpeg`;
+  img.src = `assets/photos/${i}.jpg`;
   img.alt = "";
   img.loading = "lazy";
   img.onerror = () => img.remove();
