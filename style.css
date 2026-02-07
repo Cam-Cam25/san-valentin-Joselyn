@@ -1,0 +1,260 @@
+:root{
+  --glass: rgba(255,255,255,.18); /* más transparente */
+  --glass2: rgba(255,255,255,.08);
+  --text: #1f1f1f;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:#1f1f1f;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  overflow:hidden;
+}
+
+/* =========================
+   FONDO COLLAGE
+========================= */
+.collage{
+  position:fixed;
+  inset:0;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 14px;
+
+  opacity: .45; /* ahora es el fondo real */
+  filter: blur(.6px) grayscale(5%) contrast(1.05);
+  transform: scale(1.02);
+  z-index:-5;
+}
+
+.collage img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:16px;
+}
+
+/* oscurece y unifica el collage para que se vea romántico */
+.collage-overlay{
+  position:fixed; inset:0;
+  z-index:-4;
+}
+
+/* =========================
+   CORAZONES QUE CAEN
+========================= */
+#heartsLayer{
+  position:fixed; inset:0;
+  pointer-events:none;
+  z-index:-1;
+}
+
+.heart-fall{
+  position:fixed;
+  top:-40px;
+  left: 50%;
+  font-size: 22px;
+  opacity:.9;
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,.10));
+  animation: fall linear forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes fall{
+  to{
+    transform: translate3d(var(--drift), 110vh, 0) rotate(var(--rot));
+    opacity: 0.15;
+  }
+}
+
+/* =========================
+   CONTENEDOR CENTRADO
+========================= */
+.wrap{
+  min-height: 100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 18px;
+}
+
+/* =========================
+   CARD GLASS (más transparente)
+========================= */
+.card{
+  width: min(780px, 94vw);
+  padding: 46px 42px 34px;
+  text-align:center;
+
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,.30);
+  border-radius: 34px;
+
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  box-shadow:
+    0 45px 120px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.38);
+
+  position:relative;
+}
+
+.decor{
+  position: absolute;
+  width: 165px;              /* 🔥 más grande */
+  opacity: 0.78;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 26px rgba(0,0,0,.28));
+}
+
+/* esquina superior izquierda */
+.decor-tl{
+  top: -55px;                /* ajustado */
+  left: -55px;
+  transform: rotate(-18deg);
+}
+
+/* esquina inferior derecha */
+.decor-br{
+  bottom: -55px;             /* ajustado */
+  right: -55px;
+  transform: rotate(12deg);
+}
+
+@media (max-width: 600px){
+  .decor{
+    width: 120px;
+    opacity: 0.65;
+  }
+
+  .decor-tl{
+    top: -40px;
+    left: -40px;
+  }
+
+  .decor-br{
+    bottom: -40px;
+    right: -40px;
+  }
+}
+
+.badge{
+  display:inline-block;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.30);
+  border: 1px solid rgba(255,255,255,.28);
+  font-size: .95rem;
+}
+
+.title{
+  margin: 18px 0 10px;
+  font-size: clamp(2.2rem, 4.8vw, 3rem);
+  font-weight: 900;
+  letter-spacing: .3px;
+}
+
+.pulse{
+  display:inline-block;
+  animation: pulse 1.2s infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.15)}
+}
+
+.question{
+  margin: 8px 0 20px;
+  font-size: 1.7rem;
+  line-height: 1.35;
+}
+.sub{
+  display:block;
+  margin-top:8px;
+  opacity:.85;
+}
+
+.controls{
+  position: relative;         /* clave */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap: 14px;
+  margin: 14px 0 10px;
+
+  height: 72px;               /* área donde se moverá */
+  width: 100%;
+}
+
+.btn{
+  border:0;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  cursor:pointer;
+  user-select:none;
+  box-shadow: 0 14px 30px rgba(0,0,0,.15);
+  transition: transform .08s ease, filter .2s ease;
+}
+.btn:active{ transform: scale(.98); }
+
+.yes{
+  background: linear-gradient(135deg, #ff2d7a, #ff7aa2);
+  color: white;
+  font-weight: 800;
+}
+.no{
+  position: absolute;      /* se moverá dentro del .controls */
+  left: calc(50% + 80px);  /* 👉 lo manda a la derecha del Sí */
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+.ghost{
+  background: rgba(255,255,255,.30);
+  border: 1px solid rgba(255,255,255,.20);
+  box-shadow:none;
+}
+
+.hint{
+  margin: 10px 0 0;
+  font-size: .95rem;
+  opacity:.85;
+}
+
+.message{
+  margin-top: 18px;
+  padding: 16px 16px 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.22);
+  border: 1px solid rgba(255,255,255,.18);
+}
+.hidden{ display:none; }
+
+.actions{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top: 10px;
+}
+
+.footer{
+  margin-top: 14px;
+  font-size: .95rem;
+  opacity:.85;
+}
+
+/* confetti */
+#confetti{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index: 10;
+}

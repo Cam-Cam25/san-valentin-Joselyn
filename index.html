@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Para Anajhely 💘</title>
+
+  <!-- Anti-caché -->
+  <link rel="stylesheet" href="style.css?v=25" />
+</head>
+
+<body>
+  <!-- Fondo collage -->
+  <div class="collage" id="collage" aria-hidden="true"></div>
+<div class="collage-overlay" aria-hidden="true"></div>
+
+  <!-- Capa suavizante encima del collage -->
+  <div class="collage-overlay" aria-hidden="true"></div>
+
+  <!-- Corazones que caen -->
+  <div id="heartsLayer" aria-hidden="true"></div>
+
+  
+
+  <!-- Card -->
+  <main class="wrap">
+    <section class="card" role="main">
+      <!-- Decoración floral -->
+      <img src="assets/ramo.png" class="decor decor-tl" alt="" />
+      <img src="assets/ramo.png" class="decor decor-br" alt="" />
+
+      <div class="badge">Tengo una pregunta especial....</div>
+
+      <h1 class="title">Anajhely <span class="pulse">❤️</span></h1>
+
+      <p class="question">
+        ¿Quieres ser mi <b>San Valentín</b>? 😳  
+        <span class="sub">El botón “No” anda nervioso…</span>
+      </p>
+
+      <div class="controls">
+        <button id="yesBtn" class="btn yes">Sí 💘</button>
+        <!-- el botón NO se moverá por toda la pantalla -->
+        <button id="noBtn" class="btn no">No 🙈</button>
+      </div>
+
+      <p id="hint" class="hint">
+        Si no suena la música, toca cualquier parte de la pantalla 🎵
+      </p>
+
+      <div id="messageBox" class="message hidden">
+        <h2>💖</h2>
+        <p>
+          Anajhely, acabas de hacerme la persona más feliz del mundo 🥹💘<br><br>
+          Prometo risas, cariño y un San Valentín inolvidable ✨<br>
+          <b>Gracias por decir que sí ❤️</b>
+        </p>
+
+        <div class="actions">
+          <button id="againBtn" class="btn ghost">Repetir ✨</button>
+          <button id="soundBtn" class="btn ghost">🔊 Sonido</button>
+        </div>
+      </div>
+
+      <footer class="footer">Hecho con amor por <b>Kevin</b> 💙</footer>
+    </section>
+  </main>
+
+  <!-- Música -->
+  <!-- Recomendado: assets/quiero-ver.mp3 -->
+  <audio id="bgMusic" loop preload="auto" autoplay muted>
+    <source src="Quiero Ver.mp3" type="audio/mpeg">
+  </audio>
+
+  <canvas id="confetti"></canvas>
+
+  <!-- Anti-caché -->
+  <script src="script.js?v=25"></script>
+</body>
+</html>
