@@ -18,36 +18,36 @@ body{
 ========================= */
 .collage{
   position: fixed;
-
-  /* en vez de inset:0 */
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) scale(1.02);
+  transform: translate(-50%, -50%);
 
-  width: min(1100px, 92vw);   /* ancho máximo */
-  height: min(520px, 70vh);   /* altura máxima */
+  /* 👇 AQUÍ está la magia */
+  width: min(1200px, 95vw);
+  height: 420px; /* 👈 fijo para que NO se hagan gigantes */
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
 
-  gap: 14px;
-  padding: 16px;
+  gap: 12px;
+  padding: 14px;
 
-  opacity: .45;
-  filter: blur(.6px) grayscale(5%) contrast(1.05);
-
+  opacity: .50;
+  filter: blur(.5px) grayscale(5%) contrast(1.05);
   z-index: -5;
 
   border-radius: 26px;
+  overflow: hidden;
 }
 
 .collage img{
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* recorta bonito */
   border-radius: 18px;
-  box-shadow: 0 10px 22px rgba(0,0,0,.20);
+
+  box-shadow: 0 10px 20px rgba(0,0,0,.18);
 }
 
 /* oscurece y unifica el collage para que se vea romántico */
@@ -64,12 +64,12 @@ body{
 @media (max-width: 720px){
   .collage{
     width: 94vw;
-    height: 70vh;
+    height: 360px; /* 👈 más bajito en celular */
 
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
 
-    gap: 12px;
+    gap: 10px;
     padding: 12px;
   }
 }
