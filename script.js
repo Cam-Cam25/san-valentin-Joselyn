@@ -180,7 +180,7 @@ function startConfetti(ms=2500){
 }
 
 /* ===== COLLAGE DINÁMICO (JPEG) ===== */
-const totalPhotos = 8; // ajusta según tus fotos
+const totalPhotos = 6; // ajusta según tus fotos
 for (let i = 1; i <= totalPhotos; i++) {
   const img = document.createElement("img");
   img.src = `assets/photos/${i}.jpg`;
