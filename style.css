@@ -61,6 +61,19 @@ body{
     linear-gradient(to bottom, rgba(255,245,239,.65), rgba(255,245,239,.80));
 }
 
+@media (max-width: 720px){
+  .collage{
+    width: 94vw;
+    height: 70vh;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    gap: 12px;
+    padding: 12px;
+  }
+}
+
 /* =========================
    CORAZONES QUE CAEN
 ========================= */
