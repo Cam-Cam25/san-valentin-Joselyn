@@ -18,35 +18,28 @@ body{
 ========================= */
 .collage{
   position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-  width: min(1200px, 95vw);
-
-  /* 👇 BAJA la altura para que las dos filas queden pegaditas */
-  height: 300px;   /* prueba 280px / 300px / 320px */
+  inset: 0;                 /* 👈 ocupa toda la pantalla */
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, minmax(0, 1fr)); /* 👈 evita espacios raros */
+  grid-template-rows: repeat(2, 1fr);
 
-  gap: 8px;        /* 👈 menos separación */
-  padding: 10px;   /* 👈 menos borde */
+  gap: 14px;                /* separación bonita */
+  padding: 18px;
 
   opacity: .45;
-  filter: blur(.5px) grayscale(5%) contrast(1.05);
-  z-index: -5;
+  filter: blur(.6px) grayscale(5%) contrast(1.05);
 
-  border-radius: 22px;
+  z-index: -5;
 }
 
 .collage img{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 14px;
-  display: block;
+  border-radius: 22px;
+
+  box-shadow: 0 12px 26px rgba(0,0,0,.18);
 }
 
 /* oscurece y unifica el collage para que se vea romántico */
@@ -56,20 +49,20 @@ body{
   z-index: -4;
 
   background:
-    radial-gradient(circle at 50% 40%, rgba(255,255,255,.25), transparent 60%),
-    linear-gradient(to bottom, rgba(255,245,239,.65), rgba(255,245,239,.80));
+    radial-gradient(circle at 50% 45%, rgba(255,255,255,.25), transparent 60%),
+    linear-gradient(to bottom, rgba(255,245,239,.35), rgba(255,245,239,.70));
 }
 
 @media (max-width: 720px){
   .collage{
-    width: 94vw;
-    height: 360px; /* 👈 más bajito en celular */
-
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-
-    gap: 10px;
     padding: 12px;
+    gap: 12px;
+  }
+
+  .collage img{
+    border-radius: 18px;
   }
 }
 
