@@ -22,32 +22,31 @@ body{
   top: 50%;
   transform: translate(-50%, -50%);
 
-  /* 👇 AQUÍ está la magia */
   width: min(1200px, 95vw);
-  height: 420px; /* 👈 fijo para que NO se hagan gigantes */
+
+  /* 👇 BAJA la altura para que las dos filas queden pegaditas */
+  height: 300px;   /* prueba 280px / 300px / 320px */
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr)); /* 👈 evita espacios raros */
 
-  gap: 12px;
-  padding: 14px;
+  gap: 8px;        /* 👈 menos separación */
+  padding: 10px;   /* 👈 menos borde */
 
-  opacity: .50;
+  opacity: .45;
   filter: blur(.5px) grayscale(5%) contrast(1.05);
   z-index: -5;
 
-  border-radius: 26px;
-  overflow: hidden;
+  border-radius: 22px;
 }
 
 .collage img{
   width: 100%;
   height: 100%;
-  object-fit: cover; /* recorta bonito */
-  border-radius: 18px;
-
-  box-shadow: 0 10px 20px rgba(0,0,0,.18);
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
 }
 
 /* oscurece y unifica el collage para que se vea romántico */
