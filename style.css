@@ -16,31 +16,37 @@ body{
 /* =========================
    FONDO COLLAGE
 ========================= */
+/* FONDO COLLAGE - SIEMPRE 6 visibles en desktop */
 .collage{
   position: fixed;
   inset: 0;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  /* 👇 cada “cuadro” tiene altura fija por proporción */
+  grid-auto-rows: 1fr;
 
   gap: 14px;
   padding: 18px;
-  grid-template-rows: minmax(220px, 40vh) minmax(220px, 40vh);
-  /* ✅ clave: evita que el grid se “estire” raro y se esconda con la card */
-  height: 100vh;
-  align-content: center;   /* centra el bloque de 2 filas */
-  
+
+  /* 👇 evita que el grid se estire raro y haga huecos */
+  align-content: center;
+
   opacity: .45;
   filter: blur(.6px) grayscale(5%) contrast(1.05);
   z-index: -5;
 }
 
+/* Cada foto vive dentro de un tile con proporción */
 .collage img{
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9;   /* 👈 magia: asegura 2 filas visibles */
+  height: auto;
+
   object-fit: cover;
   border-radius: 22px;
+  display: block;
 
   box-shadow: 0 12px 26px rgba(0,0,0,.18);
 }
