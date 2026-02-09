@@ -22,16 +22,19 @@ body{
   inset: 0;
 
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
 
-  /* 👇 cada “cuadro” tiene altura fija por proporción */
-  grid-auto-rows: 1fr;
+  /* 👇 CLAVE: 2 filas que SIEMPRE caben en pantalla */
+  grid-template-rows: repeat(2, calc((100vh - 36px - 14px) / 2));
+  /* 36px = padding arriba+abajo (18+18)
+     14px = el gap entre filas
+     /2 = dos filas */
 
   gap: 14px;
   padding: 18px;
 
-  /* 👇 evita que el grid se estire raro y haga huecos */
-  align-content: center;
+  /* evita overflow vertical */
+  overflow: hidden;
 
   opacity: .45;
   filter: blur(.6px) grayscale(5%) contrast(1.05);
@@ -65,7 +68,8 @@ body{
 @media (max-width: 720px){
   .collage{
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, calc((100vh - 24px - 24px) / 3));
+    /* 24px padding (12+12) y 24px gap total aprox (12*2) */
     padding: 12px;
     gap: 12px;
   }
