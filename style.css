@@ -18,18 +18,21 @@ body{
 ========================= */
 .collage{
   position: fixed;
-  inset: 0;                 /* 👈 ocupa toda la pantalla */
+  inset: 0;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
 
-  gap: 14px;                /* separación bonita */
+  gap: 14px;
   padding: 18px;
-
+  grid-template-rows: minmax(220px, 40vh) minmax(220px, 40vh);
+  /* ✅ clave: evita que el grid se “estire” raro y se esconda con la card */
+  height: 100vh;
+  align-content: center;   /* centra el bloque de 2 filas */
+  
   opacity: .45;
   filter: blur(.6px) grayscale(5%) contrast(1.05);
-
   z-index: -5;
 }
 
